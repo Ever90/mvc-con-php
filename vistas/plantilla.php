@@ -6,7 +6,7 @@
     <title>Backend Admin</title>
 
     <link rel="apple-touch-icon" href="vistas/img/plantilla/icono.png">
-    <link rel="shortcut icon" href="vistas/img/plantilla/icono.png">
+    <link rel="shortcut icon" href="vistas/img/plantilla/logo.jpg">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
@@ -38,8 +38,10 @@
 
 </head>
 <body>
+
 <?php
 
+if(isset($_SESSION["validarSesionBackend"]) && $_SESSION["validarSesionBackend"] === "ok"){ 
 include "modulos/menu.php";
 
 echo '<div id="right-panel" class="right-panel">';
@@ -62,6 +64,14 @@ if (isset($_GET["ruta"])) {
 include "modulos/footer.php";
 
 echo "</div>";
+
+}else{
+    
+    include 'modulos/login.php';
+
+}
+
+
 ?>
 
 <!-- Scripts -->
